@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> B & S</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar fixed-top" style="background-color: #1d1d1d; position: fixed; width: 100%; z-index: 1000; height: 80px;">
+    <div class="container-fluid">
+      
+
+        <a class="navbar-brand ms-3" href="#" style="font-size: 24px; font-weight: bold; letter-spacing: 0.5px; text-decoration: none; color: #f5efe0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.5;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Barış Savak</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <div class="offcanvas-body">
+                        <!-- Offcanvas içeriği buraya gelebilir -->
+                    </div>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hakkimda">Hakkımda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Öğrenme
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Ara</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div> <img src="https://js.cx/clipart/boat.png" id="boat"></div>  
+</nav>
+
+
+<header>
+    <h1>Arka Plan Resmi</h1>
+</header>
+
+
+<div class="container mt-5" id="hakkimda">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="Ekran görüntüsü 2024-01-04 170639.png" alt="Hakkımda Resmi" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>Hakkımda</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies augue id est finibus, vel scelerisque risus eleifend. Integer eget mi quis quam viverra lacinia. Nullam sed turpis eget ipsum vehicula feugiat non id risus.</p>
+            <p>Aliquam erat volutpat. Proin gravida arcu at diam gravida aliquet. Nulla facilisi. Cras non fermentum lorem. Sed pulvinar nisi vitae urna consectetur, quis commodo nisi aliquet.</p>
+        </div>
+    </div>
+</div>
+
+
+
+  <script>
+    boat.onclick = function() {
+
+      this.onclick = null; // only the first click should start the animation
+
+      let times = 1;
+
+      function go() {
+        if (times % 2) {
+          boat.classList.remove('back');
+          boat.style.marginLeft = 100 * times + 200 + 'px';
+        } else {
+          boat.classList.add('back');
+          boat.style.marginLeft = 100 * times - 200 + 'px';
+        }
+
+      }
+
+      go();
+
+      boat.addEventListener('transitionend', function() {
+        times++;
+        go();
+      });
+    }
+  </script>
+
+<footer class="text-center py-3 mt-5" style="background-color: #1d1d1d; color: #fff;">
+    <p>&copy; 2024 Barış Savak. Tüm hakları saklıdır.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var offcanvasTitle = document.getElementById("offcanvasNavbarLabel");
+
+        // Offcanvas show.bs.offcanvas etkinliği gerçekleştiğinde animasyonu başlat
+        document.getElementById("offcanvasNavbar").addEventListener("show.bs.offcanvas", function() {
+            var textToType = "Nasıl Yardımcı Olabilirim";
+            var index = 0;
+
+            function typeText() {
+                offcanvasTitle.textContent = textToType.substr(0, index);
+                index++;
+
+                if (index <= textToType.length) {
+                    setTimeout(typeText, 100); // Her karakter eklenmesi arasındaki zaman aralığı (ms)
+                }
+            }
+
+            // Animasyonu başlat
+            typeText();
+        });
+
+        // Offcanvas hide.bs.offcanvas etkinliği gerçekleştiğinde animasyonu sıfırla
+        document.getElementById("offcanvasNavbar").addEventListener("hide.bs.offcanvas", function() {
+            offcanvasTitle.textContent = "";
+        });
+    });
+</script>
+
+
+
+
+<div class="name">
+    <div>Gerwin van Royen</div>
+    <div><a target="_blank" href="https://www.twitter.com/gerwinvanroyen">@gerwinvanroyen</a></div>
+  </div>
+  <div class="perspective">
+    
+
+
+    <div class="tardis-wrap">
+    <div class="tardis">
+      <!-- start of side -->
+      <div class="side">
+        <div class="top-sign">
+          <div class="text">
+            <span class="left">POLICE</span>
+            <span class="tiny">PUBLIC CALL</span>
+            <span class="right">BOX</span>
+          </div>
+        </div>
+        <div class="door-frame">
+          <div class="door door-left">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="sign"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+          <div class="door door-right">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of side -->
+
+      <!-- start of side -->
+      <div class="side">
+        <div class="top-sign">
+          <div class="text">
+            <span class="left">POLICE</span>
+            <span class="tiny">PUBLIC CALL</span>
+            <span class="right">BOX</span>
+          </div>
+        </div>
+        <div class="door-frame">
+          <div class="door door-left">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+          <div class="door door-right">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of side -->
+
+      <!-- start of side -->
+      <div class="side">
+        <div class="top-sign">
+          <div class="text">
+            <span class="left">POLICE</span>
+            <span class="tiny">PUBLIC CALL</span>
+            <span class="right">BOX</span>
+          </div>
+        </div>
+        <div class="door-frame">
+          <div class="door door-left">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+          <div class="door door-right">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of side -->
+
+      <!-- start of side -->
+      <div class="side">
+        <div class="top-sign">
+          <div class="text">
+            <span class="left">POLICE</span>
+            <span class="tiny">PUBLIC CALL</span>
+            <span class="right">BOX</span>
+          </div>
+        </div>
+        <div class="door-frame">
+          <div class="door door-left">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+          <div class="door door-right">
+            <div class="door-inset"></div>
+            <div class="door-inset b"></div>
+            <div class="door-inset c"></div>
+            <div class="window">
+              <div class="pane a"></div><div class="pane b"></div><div class="pane c"></div>
+              <div class="pane d"></div><div class="pane e"></div><div class="pane f"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of side -->
+
+      <div class="roof"></div>
+
+
+      <div class="roof-top">
+        <div class="roof-panel a"></div>
+        <div class="roof-panel b"></div>
+        <div class="roof-panel c"></div>
+        <div class="roof-panel d"></div>
+        <div class="top-lid"></div>
+      </div>
+
+
+      <div class="light">
+        <div class="light-panel a"><div class="bottom"></div><div class="top"></div></div>
+        <div class="light-panel b"><div class="bottom"></div><div class="top"></div></div>
+        <div class="light-panel c"><div class="bottom"></div><div class="top"></div></div>
+        <div class="light-panel d"><div class="bottom"></div><div class="top"></div></div>
+        <div class="light-lid"></div>
+      </div>
+
+
+      <!-- start of floor -->
+      <div class="floor">
+        <div class="floor-panel a"></div>
+        <div class="floor-panel b"></div>
+        <div class="floor-panel c"></div>
+        <div class="floor-panel d"></div>
+        <div class="floor-lid"></div>
+      </div>
+      <!-- end of floor -->
+
+
+    </div>
+    </div>
+
+
+  </div>
+</body>
+</html>
